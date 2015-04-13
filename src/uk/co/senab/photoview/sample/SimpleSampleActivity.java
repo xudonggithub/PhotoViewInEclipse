@@ -253,20 +253,17 @@ public class SimpleSampleActivity extends Activity {
             mMatrix.getValues(values);
             System.out.println("cxd transX="+values[Matrix.MTRANS_X]+", transY="+values[Matrix.MTRANS_Y]
             		+",scaleX="+values[Matrix.MSCALE_X]+", scaleY="+values[Matrix.MSCALE_Y]);
-//            RectF viewOrgRect = new RectF(	mCustomeLayout.getLeft(),mCustomeLayout.getTop(), mCustomeLayout.getRight(),	mCustomeLayout.getBottom());
-//        	RectF dstRect = new RectF();
-//        	mMatrix.mapRect(dstRect, viewOrgRect);
-//        	System.out.println("-->cxd org rect["+viewOrgRect.left+","+viewOrgRect.top+","+viewOrgRect.right+","+viewOrgRect.bottom+"] "
-//        			+ "des rect["+dstRect.left+","+dstRect.top+","+dstRect.right+","+dstRect.bottom+"]");
-        	
-        	MatrixScaleAnimation scaleAnim = new MatrixScaleAnimation(fromX, values[Matrix.MSCALE_X], fromY, values[Matrix.MSCALE_Y],
-        			Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        	fromX = values[Matrix.MSCALE_X];
-        	fromY =  values[Matrix.MSCALE_Y];
-        	scaleAnim.setMatrix(mMatrix);
-        	scaleAnim.setFillAfter(true);
-        	mView.startAnimation(scaleAnim);
-            mView.invalidate();
+
+            if(mView != null) {
+	        	MatrixScaleAnimation scaleAnim = new MatrixScaleAnimation(fromX, values[Matrix.MSCALE_X], fromY, values[Matrix.MSCALE_Y],
+	        			Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+	        	fromX = values[Matrix.MSCALE_X];
+	        	fromY =  values[Matrix.MSCALE_Y];
+	        	scaleAnim.setMatrix(mMatrix);
+	        	scaleAnim.setFillAfter(true);
+	        	mView.startAnimation(scaleAnim);
+	            mView.invalidate();
+            }
         }
     }
     
