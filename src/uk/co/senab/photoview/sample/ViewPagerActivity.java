@@ -46,7 +46,7 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.Transformation;
 import android.widget.RelativeLayout;
 
-/**
+/** 
  * Lock/Unlock button is added to the ActionBar.
  * Use it to temporarily disable ViewPager navigation in order to correctly interact with ImageView by gestures.
  * Lock/Unlock state of ViewPager is saved and restored on configuration changes.
