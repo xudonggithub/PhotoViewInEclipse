@@ -18,7 +18,6 @@ package uk.co.senab.photoview.sample;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 import uk.co.senab.photoview.PhotoViewAttacher.OnMatrixChangedListener;
-import uk.co.senab.photoview.sample.SimpleSampleActivity.MatrixScaleAnimation;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -45,7 +44,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.Transformation;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 /**
@@ -56,6 +54,14 @@ import android.widget.RelativeLayout;
  * Julia Zudikova
  */
 
+/**
+ * Add a custom view which can be a  complicated view group defined by yourself above every page view. 
+ * This view is scaled and moved  in the same way as the page view. 
+ * 
+ * 
+ * @author xdchen chen
+ *
+ */
 public class ViewPagerActivity extends Activity {
 
 	private static final String ISLOCKED_ARG = "isLocked";
@@ -80,7 +86,6 @@ public class ViewPagerActivity extends Activity {
 	}
     
     private Paint mPaint = new Paint();
-   
     private  RectF mScreenRect = new RectF();
     private void initCustomView() {
     	
@@ -107,6 +112,7 @@ public class ViewPagerActivity extends Activity {
 			}
 		};
 		return view;
+		
 	}
     private RectF mRect = new RectF(340,136,615,614);
     private static final RectF[] mRectArr = {
@@ -173,12 +179,14 @@ public class ViewPagerActivity extends Activity {
 //		public View getCurrentView() {
 //			return mCurrentView;
 //		}
-		private Matrix mMatrix = new Matrix();
-		private float fromX = 1;
-		private float fromY = 1;
+		
 
 		private class MatrixChangeListener implements OnMatrixChangedListener {
 			private View mCustomView;
+			private Matrix mMatrix = new Matrix();
+			private float fromX = 1;
+			private float fromY = 1;
+			
 			public MatrixChangeListener(View view) {
 				mCustomView = view;
 			}
@@ -209,8 +217,6 @@ public class ViewPagerActivity extends Activity {
 				mCustomView.invalidate();
 			}
 		}
-
-		
 	}
 	
 	

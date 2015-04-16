@@ -12,6 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ * 
  *******************************************************************************/
 package uk.co.senab.photoview.sample;
 
@@ -49,6 +51,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Add a custom view which can be a  complicated view group defined by yourself above the photo view. 
+ * This view is scaled and moved  in the same way as the photo view. 
+ * 
+ * 
+ * @author xdchen chen
+ *
+ */
 public class SimpleSampleActivity extends Activity {
 
     static final String PHOTO_TAP_TOAST_STRING = "Photo Tap! X: %.2f %% Y:%.2f %% ID: %d";
